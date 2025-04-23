@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="All-in-One File Toolkit - Compress, merge, and convert images & PDFs with professional online tools">
-    <meta name="keywords" content="image compressor, PDF tools, document converter, image merger, PDF editor">
-    <title>FileMagic - Online File Conversion Tools</title>
+    <meta name="description" content="All-in-One File Toolkit - Professional PDF and Image Conversion Tools">
+    <meta name="keywords" content="PDF tools, image converter, document editor, compress PDF, merge images">
+    <title>DocMaster - File Conversion Suite</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4F46E5;
-            --secondary: #6366F1;
+            --primary: #3B82F6;
+            --secondary: #2563EB;
             --background: #F8FAFC;
         }
 
@@ -27,76 +27,61 @@
             background: var(--background);
         }
 
-        /* Header */
-        .header {
+        /* Navigation */
+        .sidebar {
             background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 280px;
+            position: fixed;
+            height: 100%;
             padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.1);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .tool-category {
+            margin: 1.5rem 0;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .category-title {
+            font-weight: 600;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        /* Tools Grid */
+        .tool-list {
+            list-style: none;
+        }
+
+        .tool-item {
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: var(--background);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+
+        /* Tool Cards */
         .tool-grid {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
         .tool-card {
             background: white;
-            border-radius: 12px;
             padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Image Compressor Tool */
-        .tool-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .file-input-wrapper {
-            border: 2px dashed #ddd;
             border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin: 1.5rem 0;
-            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Ads */
+        /* Ad Units */
         .ad-unit {
             margin: 2rem 0;
             text-align: center;
@@ -104,166 +89,140 @@
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
             }
             
-            .tool-container {
-                padding: 1rem;
+            .main-content {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="/" class="logo">FileMagic</a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#tools">Tools</a>
-                <a href="#about">About</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Ad Unit 1 -->
-    <div class="ad-unit">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="1234567890"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- Image Compression Tool -->
-    <div class="tool-container" id="compressor">
-        <h2>Image Compressor</h2>
-        <div class="file-input-wrapper">
-            <input type="file" id="fileInput" accept="image/*">
-            <p>📁 Drag and drop or click to upload image</p>
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <div class="tool-category">
+            <h3 class="category-title">ORGANIZE PDF</h3>
+            <ul class="tool-list">
+                <li class="tool-item"><a href="image-merger.html">Merge PDF</a></li>
+                <li class="tool-item">Split PDF</li>
+                <li class="tool-item">Remove Pages</li>
+            </ul>
         </div>
 
-        <div class="controls">
-            <label>Quality: <span id="qualityValue">80</span>%</label>
-            <input type="range" id="quality" min="1" max="100" value="80">
+        <div class="tool-category">
+            <h3 class="category-title">OPTIMIZE PDF</h3>
+            <ul class="tool-list">
+                <li class="tool-item">Compress PDF</li>
+                <li class="tool-item">Repair PDF</li>
+            </ul>
         </div>
 
-        <button onclick="compressImage()">Compress Now</button>
-        
-        <div class="previews">
-            <div class="preview">
-                <h3>Original</h3>
-                <img id="originalPreview">
+        <div class="tool-category">
+            <h3 class="category-title">CONVERT TO PDF</h3>
+            <ul class="tool-list">
+                <li class="tool-item"><a href="image-pdf.html">JPG to PDF</a></li>
+                <li class="tool-item"><a href="word-pdf.html">WORD to PDF</a></li>
+            </ul>
+        </div>
+
+        <div class="tool-category">
+            <h3 class="category-title">CONVERT FROM PDF</h3>
+            <ul class="tool-list">
+                <li class="tool-item"><a href="pdf-word.html">PDF to Word</a></li>
+                <li class="tool-item">PDF to Excel</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Ad Unit -->
+        <div class="ad-unit">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Tool Interfaces -->
+        <div class="tool-grid">
+            <!-- Image Compressor -->
+            <div class="tool-card" id="compressor">
+                <h3>Image Compressor</h3>
+                <input type="file" accept="image/*">
+                <div class="quality-control">
+                    <label>Quality: <span>80</span>%</label>
+                    <input type="range" min="1" max="100" value="80">
+                </div>
+                <button>Compress</button>
             </div>
-            <div class="preview">
-                <h3>Compressed</h3>
-                <img id="compressedPreview">
-                <a id="downloadLink" class="download-btn">Download</a>
+
+            <!-- PDF Converter -->
+            <div class="tool-card" id="pdf-converter">
+                <h3>PDF to Word</h3>
+                <input type="file" accept=".pdf">
+                <button>Convert</button>
+            </div>
+
+            <!-- Image to PDF -->
+            <div class="tool-card" id="image-pdf">
+                <h3>JPG to PDF</h3>
+                <input type="file" accept="image/*" multiple>
+                <button>Convert to PDF</button>
             </div>
         </div>
-    </div>
 
-    <!-- Tools Grid -->
-    <div class="tool-grid" id="tools">
-        <a href="image-merger.html" class="tool-card">
-            <i class="fas fa-object-group"></i>
-            <h3>Image Merger</h3>
-            <p>Combine multiple images into one</p>
-        </a>
-        <a href="image-pdf.html" class="tool-card">
-            <i class="fas fa-file-pdf"></i>
-            <h3>Image to PDF</h3>
-            <p>Convert images to PDF documents</p>
-        </a>
-        <a href="pdf-editor.html" class="tool-card">
-            <i class="fas fa-edit"></i>
-            <h3>PDF Editor</h3>
-            <p>Modify PDF documents online</p>
-        </a>
-        <a href="pdf-word.html" class="tool-card">
-            <i class="fas fa-file-word"></i>
-            <h3>PDF to Word</h3>
-            <p>Convert PDFs to editable documents</p>
-        </a>
-        <a href="word-pdf.html" class="tool-card">
-            <i class="fas fa-file-pdf"></i>
-            <h3>Word to PDF</h3>
-            <p>Convert DOC/DOCX to PDF</p>
-        </a>
-    </div>
-
-    <!-- Ad Unit 2 -->
-    <div class="ad-unit">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="0987654321"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+        <!-- Second Ad Unit -->
+        <div class="ad-unit">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0987654321"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
 
     <script>
-        // Image Compression Logic
-        const qualitySlider = document.getElementById('quality');
-        const qualityValue = document.getElementById('qualityValue');
-        const fileInput = document.getElementById('fileInput');
-        let originalFile = null;
+        // Tool Functionality
+        const compressImage = (file, quality) => {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+                        
+                        canvas.toBlob(blob => resolve(blob), 'image/jpeg', quality);
+                    };
+                };
+                reader.readAsDataURL(file);
+            });
+        };
 
-        qualitySlider.addEventListener('input', () => {
-            qualityValue.textContent = qualitySlider.value;
-        });
-
-        fileInput.addEventListener('change', handleFileSelect);
-
-        function handleFileSelect(e) {
-            originalFile = e.target.files[0];
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById('originalPreview').src = event.target.result;
-            };
-            reader.readAsDataURL(originalFile);
-        }
-
-        function compressImage() {
-            if (!originalFile) return alert('Please select an image!');
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const img = new Image();
-            
-            img.onload = () => {
-                canvas.width = img.width;
-                canvas.height = img.height;
-                ctx.drawImage(img, 0, 0);
-                
-                canvas.toBlob(blob => {
-                    const compressedUrl = URL.createObjectURL(blob);
-                    document.getElementById('compressedPreview').src = compressedUrl;
-                    const downloadLink = document.getElementById('downloadLink');
-                    downloadLink.href = compressedUrl;
-                    downloadLink.download = `compressed-${originalFile.name}`;
-                }, 'image/jpeg', qualitySlider.value/100);
-            };
-            img.src = URL.createObjectURL(originalFile);
-        }
-
-        // Structured Data
+        // SEO Structured Data
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "FileMagic",
-            "description": "Comprehensive online file conversion and optimization toolkit",
-            "applicationCategory": ["Multimedia", "Productivity"],
-            "operatingSystem": "Any",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
+            "name": "DocMaster",
+            "description": "Professional PDF and image conversion toolkit",
+            "applicationCategory": ["Business", "Productivity"],
+            "operatingSystem": "Any"
         };
     </script>
 </body>
