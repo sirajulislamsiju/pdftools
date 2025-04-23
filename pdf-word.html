@@ -1,243 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional PDF and Image Tools - Convert, Compress, Edit Documents Online">
-    <meta name="keywords" content="PDF tools, image converter, compress PDF, merge PDF, PDF to Word">
-    <title>PDFMaster - Online Document Solutions</title>
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-    crossorigin="anonymous"></script>
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --background: #f8fafc;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        body {
-            background: var(--background);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        .header {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Main Layout */
-        .container {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tool-category {
-            margin-bottom: 2rem;
-        }
-
-        .category-title {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .tool-list {
-            list-style: none;
-        }
-
-        .tool-item {
-            padding: 0.5rem;
-            margin-bottom: 0.5rem;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
-
-        .tool-item:hover {
-            background: var(--background);
-        }
-
-        /* Tool Cards */
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tool-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* File Input Styling */
-        .file-input {
-            margin: 1rem 0;
-            padding: 1rem;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                display: none;
-            }
-        }
-    </style>
+    <!-- Similar meta tags as index.html -->
+    <title>PDF to Word Converter</title>
 </head>
 <body>
-    <header class="header">
-        <h1>PDFMaster</h1>
-        <p>Professional Document Solutions</p>
-    </header>
+    <header><!-- Same navigation --></header>
 
-    <div class="container">
-        <nav class="sidebar">
-            <div class="tool-category">
-                <h3 class="category-title">Organize PDF</h3>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="#merge-pdf">Merge PDF</a></li>
-                    <li class="tool-item"><a href="#split-pdf">Split PDF</a></li>
-                </ul>
-            </div>
+    <main class="converter-container">
+        <div class="ad-unit sidebar-ad">
+            <!-- AdSense Sidebar Ad -->
+        </div>
 
-            <div class="tool-category">
-                <h3 class="category-title">Convert PDF</h3>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="#pdf-to-word">PDF to Word</a></li>
-                    <li class="tool-item"><a href="#word-to-pdf">Word to PDF</a></li>
-                </ul>
-            </div>
-        </nav>
+        <h1>PDF to Word Converter</h1>
+        <div class="converter-box">
+            <input type="file" id="pdfInput" accept=".pdf">
+            <button onclick="convertPdfToWord()">Convert to Word</button>
+            <div class="download-section" id="downloadArea"></div>
+        </div>
+    </main>
 
-        <main>
-            <!-- Ad Unit -->
-            <div class="ad-unit">
-                <!-- Replace with your AdSense code -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                    data-ad-slot="1234567890"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <!-- Tools -->
-            <div class="tool-grid">
-                <!-- PDF to Word Converter -->
-                <div class="tool-card" id="pdf-to-word">
-                    <h2>PDF to Word Converter</h2>
-                    <div class="file-input">
-                        <input type="file" accept=".pdf" id="pdfInput">
-                        <p>Upload PDF file</p>
-                    </div>
-                    <button onclick="convertPdfToWord()">Convert to Word</button>
-                </div>
-
-                <!-- Image Compressor -->
-                <div class="tool-card" id="image-compressor">
-                    <h2>Image Compressor</h2>
-                    <div class="file-input">
-                        <input type="file" accept="image/*" id="imageInput">
-                        <p>Upload Image</p>
-                    </div>
-                    <label>Quality: <span id="qualityValue">80</span>%</label>
-                    <input type="range" id="quality" min="1" max="100" value="80">
-                    <button onclick="compressImage()">Compress Image</button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        // PDF to Word Converter
-        async function convertPdfToWord() {
-            const fileInput = document.getElementById('pdfInput');
-            if (!fileInput.files[0]) {
-                alert('Please select a PDF file');
-                return;
-            }
-
-            // Add actual conversion logic here
-            alert('Conversion started... (Demo)');
-        }
-
-        // Image Compressor
-        async function compressImage() {
-            const fileInput = document.getElementById('imageInput');
-            const quality = document.getElementById('quality').value / 100;
-
-            if (!fileInput.files[0]) {
-                alert('Please select an image');
-                return;
-            }
-
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const img = new Image();
-                img.src = e.target.result;
-
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    ctx.drawImage(img, 0, 0);
-
-                    canvas.toBlob((blob) => {
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `compressed_${file.name}`;
-                        a.click();
-                    }, 'image/jpeg', quality);
-                };
-            };
-
-            reader.readAsDataURL(file);
-        }
-
-        // SEO Structured Data
-        const structuredData = {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "PDFMaster",
-            "description": "Professional PDF and image conversion tools",
-            "applicationCategory": ["Business", "Productivity"]
-        };
-    </script>
+    <script src="js/pdf-to-word.js"></script>
 </body>
 </html>
