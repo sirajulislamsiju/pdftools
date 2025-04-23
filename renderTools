@@ -5,7 +5,17 @@ function renderTools(filter = 'All Tools') {
         : tools.filter(tool => tool.category === filter);
 
     filteredTools.forEach(tool => {
-        const toolCard = document.createElement('a');
+        const toolCard = document.createElement('.tool-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+    text-decoration: none;
+    transform: translateY(-5px);
+}');
         toolCard.className = 'tool-card';
         toolCard.href = tool.link;
         toolCard.innerHTML = `
