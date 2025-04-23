@@ -1,20 +1,152 @@
-function renderTools(filter = 'All Tools') {
-    toolContainer.innerHTML = '';
-    const filteredTools = filter === 'All Tools' 
-        ? tools 
-        : tools.filter(tool => tool.category === filter);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Toolkit - Online File Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1d4ed8;
+            --background: #f8fafc;
+        }
 
-    filteredTools.forEach(tool => {
-        const toolCard = document.createElement('a');
-        toolCard.className = 'tool-card';
-        toolCard.href = tool.link;
-        toolCard.target = "_blank";
-        toolCard.rel = "noopener noreferrer";
-        toolCard.innerHTML = `
-            <i class="${tool.icon} tool-icon"></i>
-            <h3>${tool.name}</h3>
-            <p>${tool.desc}</p>
-        `;
-        toolContainer.appendChild(toolCard);
-    });
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background);
+        }
+
+        /* Updated tool card styles for anchor tags */
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            text-decoration: none;
+        }
+
+        /* Rest of existing styles remain the same */
+        .header { /* ... */ }
+        .nav-container { /* ... */ }
+        .logo { /* ... */ }
+        .search-bar { /* ... */ }
+        .hero { /* ... */ }
+        .tool-grid { /* ... */ }
+        .tool-icon { /* ... */ }
+        .category-filter { /* ... */ }
+        .category-btn { /* ... */ }
+        footer { /* ... */ }
+        .footer-content { /* ... */ }
+        @media (max-width: 768px) { /* ... */ }
+    </style>
+</head>
+<body>
+    <!-- Existing header and hero section -->
+    
+    <main class="tool-grid" id="toolContainer">
+        <!-- Tools will be dynamically inserted here -->
+    </main>
+
+    <!-- Existing footer -->
+
+    <script>
+        const tools = [
+            { 
+                name: "Image Compressor",
+                icon: "fa-solid fa-file-image",
+                category: "Image Tools",
+                desc: "Reduce image file size without quality loss",
+                link: "/image-compressor.html"
+            },
+            {
+                name: "PDF Merger",
+                icon: "fa-solid fa-file-pdf",
+                category: "PDF Tools",
+                desc: "Combine multiple PDF files into one document",
+                link: "/pdf-merger.html"
+            },
+            {
+                name: "Document Converter",
+                icon: "fa-solid fa-file-word",
+                category: "Documents",
+                desc: "Convert between DOC, PDF, and other formats",
+                link: "/document-converter.html"
+            },
+            {
+                name: "Image Converter",
+                icon: "fa-solid fa-file-image",
+                category: "Image Tools",
+                desc: "Convert between JPG, PNG, WEBP formats",
+                link: "/image-converter.html"
+            },
+            {
+                name: "PDF to Word",
+                icon: "fa-solid fa-file-pdf",
+                category: "PDF Tools",
+                desc: "Convert PDF documents to editable Word files",
+                link: "/pdf-to-word.html"
+            },
+            {
+                name: "Excel to PDF",
+                icon: "fa-solid fa-file-excel",
+                category: "Documents",
+                desc: "Convert spreadsheets to PDF format",
+                link: "/excel-to-pdf.html"
+            }
+        ];
+
+        const toolContainer = document.getElementById('toolContainer');
+
+        function renderTools(filter = 'All Tools') {
+            toolContainer.innerHTML = '';
+            const filteredTools = filter === 'All Tools' 
+                ? tools 
+                : tools.filter(tool => tool.category === filter);
+
+            filteredTools.forEach(tool => {
+                const toolCard = document.createElement('a');
+                toolCard.className = 'tool-card';
+                toolCard.href = tool.link;
+                toolCard.target = "_blank";
+                toolCard.rel = "noopener noreferrer";
+                toolCard.innerHTML = `
+                    <i class="${tool.icon} tool-icon"></i>
+                    <h3>${tool.name}</h3>
+                    <p>${tool.desc}</p>
+                `;
+                toolContainer.appendChild(toolCard);
+            });
+        }
+
+        // Initial render
+        renderTools();
+
+        // Category filter handling
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderTools(btn.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
