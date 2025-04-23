@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image to PDF Converter</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Image to PDF Converter</h1>
-        <a href="/">← Back to Home</a>
-    </header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+async function convertToPDF() {
+    const files = document.getElementById('imageInput').files;
+    if(files.length === 0) return;
+    
+    const doc = new jspdf.jsPDF();
+    const loading = showLoading();
 
-    <main class="tool-container">
-        <div class="ad-sidebar">
-            <!-- Vertical Ad -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                data-ad-slot="XXXXXXXXXX"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-        </div>
-
-        <div class="tool-interface">
-            <input type="file" id="imageInput" accept="image/*" multiple>
-            <button onclick="convertToPDF()">Convert to PDF</button>
-            <div id="preview"></div>
-        </div>
-    </main>
-
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Image to PDF conversion logic
-        function convertToPDF() {
-            // Add conversion logic here
+    try {
+        for(let i = 0; i < files.length; i++) {
+            const img = await loadImage(files[i]);
+            const imgProps = doc.getImageProperties(img);
+            const pdfWidth = doc.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            
+            if(i !== 0) doc.addPage();
+            doc.addImage(img, 'JPEG', 0, 0, pdfWidth, pdfHeight);
         }
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</body>
-</html>
+        
+        doc.save('converted.pdf');
+    } catch(error) {
+        showError('Conversion failed: ' + error.message);
+    } finally {
+        loading.remove();
+    }
+}
+
+function loadImage(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = reject;
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+</script>
