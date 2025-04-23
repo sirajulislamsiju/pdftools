@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress images online for free with adjustable quality settings. Reduce image file size without losing quality. WebP, JPEG, and PNG support.">
+    <meta name="keywords" content="image compressor, optimize images, reduce image size, web optimization, free image compressor">
+    <title>Free Online Image Compressor | Web Optimization Tool</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --background: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 1rem;
+            background: var(--background);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .tool-container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .ad-section {
+            margin: 2rem 0;
+            text-align: center;
+            min-height: 100px;
+        }
+
+        .file-input-wrapper {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        #fileInput {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .controls-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .quality-control {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .preview-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .preview-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .preview-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+        }
+
+        .download-link {
+            display: none;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .tool-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🖼️ Online Image Compressor</h1>
+            <p>Reduce image file size while maintaining quality</p>
+        </header>
+
+        <div class="ad-section">
+            <!-- AdSense Header Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <main class="main-wrapper">
+            <section class="tool-container">
+                <div class="file-input-wrapper">
+                    <input type="file" id="fileInput" accept="image/*">
+                    <p>📁 Drag and drop or click to upload image</p>
+                    <p>Supports: JPEG, PNG, WebP</p>
+                </div>
+
+                <div class="controls-wrapper">
+                    <div class="quality-control">
+                        <label for="quality">Quality: <span id="qualityValue">80</span>%</label>
+                        <input type="range" id="quality" min="1" max="100" value="80">
+                    </div>
+                    <div class="quality-control">
+                        <label for="format">Output Format:</label>
+                        <select id="format">
+                            <option value="webp">WebP</option>
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="startCompression()">Compress Now</button>
+                
+                <div class="preview-section">
+                    <div class="preview-card">
+                        <h3>Original Image</h3>
+                        <div id="originalInfo"></div>
+                        <img id="originalPreview" class="preview-image">
+                    </div>
+                    <div class="preview-card">
+                        <h3>Compressed Image</h3>
+                        <div id="compressedInfo"></div>
+                        <img id="compressedPreview" class="preview-image">
+                        <a id="downloadLink" class="download-link">Download</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="ad-section">
+            <!-- AdSense Footer Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0987654321"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <script>
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const fileInput = document.getElementById('fileInput');
+        const formatSelect = document.getElementById('format');
+        const downloadLink = document.getElementById('downloadLink');
+        let originalFile = null;
+
+        // Event Listeners
+        qualitySlider.addEventListener('input', updateQuality);
+        fileInput.addEventListener('change', handleFileSelect);
+
+        function updateQuality() {
+            qualityValue.textContent = qualitySlider.value;
+        }
+
+        function handleFileSelect(e) {
+            originalFile = e.target.files[0];
+            if (!originalFile) return;
+
+            // Validate file type
+            if (!originalFile.type.startsWith('image/')) {
+                alert('Please select an image file');
+                return;
+            }
+
+            // Show original preview
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById('originalPreview').src = event.target.result;
+                document.getElementById('originalInfo').textContent = 
+                    `${originalFile.name} (${(originalFile.size/1024).toFixed(1)} KB)`;
+            };
+            reader.readAsDataURL(originalFile);
+        }
+
+        async function startCompression() {
+            if (!originalFile) {
+                alert('Please select an image first!');
+                return;
+            }
+
+            showLoading(true);
+            
+            try {
+                const compressedBlob = await compressImage(originalFile);
+                const compressedUrl = URL.createObjectURL(compressedBlob);
+                
+                // Show compressed preview
+                document.getElementById('compressedPreview').src = compressedUrl;
+                document.getElementById('compressedInfo').textContent = 
+                    `Compressed size: ${(compressedBlob.size/1024).toFixed(1)} KB`;
+                
+                // Setup download link
+                downloadLink.href = compressedUrl;
+                downloadLink.download = `compressed.${formatSelect.value}`;
+                downloadLink.style.display = 'block';
+            } catch (error) {
+                alert('Error compressing image: ' + error.message);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function compressImage(file) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = URL.createObjectURL(file);
+                
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Calculate new dimensions
+                    let width = img.width;
+                    let height = img.height;
+                    const maxDimension = 4096;
+                    
+                    if (width > maxDimension || height > maxDimension) {
+                        const ratio = Math.min(maxDimension/width, maxDimension/height);
+                        width = width * ratio;
+                        height = height * ratio;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Get compression settings
+                    const quality = qualitySlider.value / 100;
+                    const format = formatSelect.value;
+
+                    canvas.toBlob(blob => {
+                        blob ? resolve(blob) : reject(new Error('Compression failed'));
+                    }, `image/${format}`, quality);
+                };
+
+                img.onerror = () => reject(new Error('Failed to load image'));
+            });
+        }
+
+        function showLoading(show) {
+            const button = document.querySelector('button');
+            button.disabled = show;
+            button.textContent = show ? 'Compressing...' : 'Compress Now';
+        }
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Image Compressor",
+        "description": "Free online image compression tool with format conversion and quality adjustment",
+        "applicationCategory": ["Multimedia", "Tools"],
+        "operatingSystem": "Any",
+        "browserRequirements": "Modern web browser with JavaScript support",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</body>
+</html>
