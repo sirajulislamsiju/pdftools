@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Toolkit - Online File Conversion & Optimization</title>
+    <meta name="description" content="All-in-One File Tools - Compress images, convert PDFs, and optimize documents online">
+    <meta name="keywords" content="image compressor, PDF tools, document converter, online tools">
+    <title>FileTools Pro - Online File Optimization Suite</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -12,6 +15,7 @@
             --background: #f8fafc;
         }
 
+        /* Global Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -24,6 +28,7 @@
             background-color: var(--background);
         }
 
+        /* Header Styles */
         .header {
             background: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -47,36 +52,31 @@
             color: var(--primary-color);
         }
 
-        .search-bar {
-            flex: 0 1 400px;
-            padding: 0.5rem;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar input {
-            border: none;
-            outline: none;
-            padding: 0 1rem;
-            width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: white;
-        }
-
-        .tool-grid {
+        /* Image Compressor Tool Styles */
+        .tool-container {
             max-width: 1200px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .file-input-wrapper {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        /* Homepage Styles */
+        .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            padding: 2rem;
         }
 
         .tool-card {
@@ -86,75 +86,33 @@
             text-align: center;
             transition: transform 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
         }
 
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .category-filter {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .category-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            border: 2px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        footer {
-            background: #1e293b;
-            color: white;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 gap: 1rem;
             }
-
-            .search-bar {
-                width: 100%;
+            
+            .tool-container {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header Navigation -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo">Digital Toolkit</div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search tools...">
-                <i class="fas fa-search"></i>
-            </div>
+            <a href="/" class="logo">FileTools Pro</a>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#tools">Tools</a>
@@ -163,124 +121,110 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Your All-in-One Digital Solution</h1>
-        <p>Convert, optimize, and transform files with our free online tools</p>
-    </section>
-
-    <div class="category-filter">
-        <button class="category-btn active">All Tools</button>
-        <button class="category-btn">Image Tools</button>
-        <button class="category-btn">PDF Tools</button>
-        <button class="category-btn">Documents</button>
+    <!-- AdSense Top Banner -->
+    <div class="ad-section">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <main class="tool-grid" id="toolContainer">
-        <!-- Tools will be dynamically inserted here -->
-    </main>
+    <!-- Image Compression Tool -->
+    <div class="tool-container" id="jpg-compress">
+        <h2>Image Compressor</h2>
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput" accept="image/*">
+            <p>📁 Drag and drop or click to upload image</p>
+        </div>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h3>Digital Toolkit</h3>
-                <p>Free online tools for everyday file conversions</p>
+        <div class="controls-wrapper">
+            <label for="quality">Quality: <span id="qualityValue">80</span>%</label>
+            <input type="range" id="quality" min="1" max="100" value="80">
+        </div>
+
+        <button onclick="compressImage()">Compress Now</button>
+        
+        <div class="preview-section">
+            <div class="preview-card">
+                <h3>Original Image</h3>
+                <img id="originalPreview" class="preview-image">
             </div>
-            <div>
-                <h4>Categories</h4>
-                <ul>
-                    <li>Image Tools</li>
-                    <li>PDF Tools</li>
-                    <li>Document Tools</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Legal</h4>
-                <ul>
-                    <li>Privacy Policy</li>
-                    <li>Terms of Service</li>
-                    <li>Contact</li>
-                </ul>
+            <div class="preview-card">
+                <h3>Compressed Image</h3>
+                <img id="compressedPreview" class="preview-image">
+                <a id="downloadLink" class="download-link">Download</a>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Tools Homepage Grid -->
+    <main class="tool-grid" id="toolContainer">
+        <a href="jpg-compress.html" class="tool-card">
+            <i class="fa-solid fa-file-image tool-icon"></i>
+            <h3>Image Compressor</h3>
+            <p>Reduce image file size without quality loss</p>
+        </a>
+        <!-- Add more tool cards following the same pattern -->
+    </main>
 
     <script>
-       const tools = [
-    { 
-        name: "Image Compressor",
-        icon: "fa-solid fa-file-image",
-        category: "Image Tools",
-        desc: "Reduce image file size without quality loss",
-        link: "/image-compressor.html"
-    },
-    {
-        name: "PDF Merger",
-        icon: "fa-solid fa-file-pdf",
-        category: "PDF Tools",
-        desc: "Combine multiple PDF files into one document",
-        link: "/pdf-merger.html"
-    },
-    {
-        name: "Document Converter",
-        icon: "fa-solid fa-file-word",
-        category: "Documents",
-        desc: "Convert between DOC, PDF, and other formats",
-        link: "/document-converter.html"
-    },
-    {
-        name: "Image Converter",
-        icon: "fa-solid fa-file-image",
-        category: "Image Tools",
-        desc: "Convert between JPG, PNG, WEBP formats",
-        link: "/image-converter.html"
-    },
-    {
-        name: "PDF to Word",
-        icon: "fa-solid fa-file-pdf",
-        category: "PDF Tools",
-        desc: "Convert PDF documents to editable Word files",
-        link: "/pdf-to-word.html"
-    },
-    {
-        name: "Excel to PDF",
-        icon: "fa-solid fa-file-excel",
-        category: "Documents",
-        desc: "Convert spreadsheets to PDF format",
-        link: "/excel-to-pdf.html"
-    }
-];
+        // Image Compression Logic
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const fileInput = document.getElementById('fileInput');
+        let originalFile = null;
 
-        const toolContainer = document.getElementById('renderTools');
+        qualitySlider.addEventListener('input', () => {
+            qualityValue.textContent = qualitySlider.value;
+        });
 
-        function renderTools(filter = 'All Tools') {
-            toolContainer.innerHTML = '';
-            const filteredTools = filter === 'All Tools' 
-                ? tools 
-                : tools.filter(tool => tool.category === filter);
+        fileInput.addEventListener('change', handleFileSelect);
 
-            filteredTools.forEach(tool => {
-                const toolCard = document.createElement('div');
-                toolCard.className = 'tool-card';
-                toolCard.innerHTML = `
-                    <i class="${tool.icon} tool-icon"></i>
-                    <h3>${tool.name}</h3>
-                    <p>${tool.desc}</p>
-                `;
-                toolContainer.appendChild(toolCard);
-            });
+        function handleFileSelect(e) {
+            originalFile = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById('originalPreview').src = event.target.result;
+            };
+            reader.readAsDataURL(originalFile);
         }
 
-        // Initial render
-        renderTools();
+        async function compressImage() {
+            if (!originalFile) return alert('Please select an image!');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            img.src = URL.createObjectURL(originalFile);
+            img.onload = () => {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                canvas.toBlob(blob => {
+                    const compressedUrl = URL.createObjectURL(blob);
+                    document.getElementById('compressedPreview').src = compressedUrl;
+                    const downloadLink = document.getElementById('downloadLink');
+                    downloadLink.href = compressedUrl;
+                    downloadLink.download = `compressed-${originalFile.name}`;
+                    downloadLink.style.display = 'block';
+                }, 'image/jpeg', qualitySlider.value/100);
+            };
+        }
 
-        // Category filter handling
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderTools(btn.textContent);
-            });
-        });
+        // SEO Structured Data
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "FileTools Pro",
+            "description": "Comprehensive online file optimization toolkit",
+            "applicationCategory": ["Multimedia", "Productivity"],
+            "operatingSystem": "Any"
+        };
     </script>
 </body>
 </html>
