@@ -1,0 +1,18 @@
+function renderTools(filter = 'All Tools') {
+    toolContainer.innerHTML = '';
+    const filteredTools = filter === 'All Tools' 
+        ? tools 
+        : tools.filter(tool => tool.category === filter);
+
+    filteredTools.forEach(tool => {
+        const toolCard = document.createElement('a');
+        toolCard.className = 'tool-card';
+        toolCard.href = tool.link;
+        toolCard.innerHTML = `
+            <i class="${tool.icon} tool-icon"></i>
+            <h3>${tool.name}</h3>
+            <p>${tool.desc}</p>
+        `;
+        toolContainer.appendChild(toolCard);
+    });
+}
