@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="All-in-One File Tools - Compress images, convert PDFs, and optimize documents online">
-    <meta name="keywords" content="image compressor, PDF tools, document converter, online tools">
-    <title>FileTools Pro - Online File Optimization Suite</title>
+    <meta name="description" content="All-in-One File Toolkit - Compress, merge, and convert images & PDFs with professional online tools">
+    <meta name="keywords" content="image compressor, PDF tools, document converter, image merger, PDF editor">
+    <title>FileMagic - Online File Conversion Tools</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1d4ed8;
-            --background: #f8fafc;
+            --primary: #4F46E5;
+            --secondary: #6366F1;
+            --background: #F8FAFC;
         }
 
-        /* Global Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,10 +24,10 @@
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            background-color: var(--background);
+            background: var(--background);
         }
 
-        /* Header Styles */
+        /* Header */
         .header {
             background: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -48,13 +47,39 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        /* Image Compressor Tool Styles */
-        .tool-container {
+        /* Tools Grid */
+        .tool-grid {
             max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image Compressor Tool */
+        .tool-container {
+            max-width: 800px;
             margin: 2rem auto;
             padding: 2rem;
             background: white;
@@ -71,31 +96,13 @@
             position: relative;
         }
 
-        /* Homepage Styles */
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
+        /* Ads */
+        .ad-unit {
+            margin: 2rem 0;
             text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            min-height: 100px;
         }
 
-        .tool-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -109,10 +116,9 @@
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
     <header class="header">
         <nav class="nav-container">
-            <a href="/" class="logo">FileTools Pro</a>
+            <a href="/" class="logo">FileMagic</a>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#tools">Tools</a>
@@ -121,8 +127,8 @@
         </nav>
     </header>
 
-    <!-- AdSense Top Banner -->
-    <div class="ad-section">
+    <!-- Ad Unit 1 -->
+    <div class="ad-unit">
         <ins class="adsbygoogle"
             style="display:block"
             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -133,42 +139,72 @@
     </div>
 
     <!-- Image Compression Tool -->
-    <div class="tool-container" id="jpg-compress">
+    <div class="tool-container" id="compressor">
         <h2>Image Compressor</h2>
         <div class="file-input-wrapper">
             <input type="file" id="fileInput" accept="image/*">
             <p>📁 Drag and drop or click to upload image</p>
         </div>
 
-        <div class="controls-wrapper">
-            <label for="quality">Quality: <span id="qualityValue">80</span>%</label>
+        <div class="controls">
+            <label>Quality: <span id="qualityValue">80</span>%</label>
             <input type="range" id="quality" min="1" max="100" value="80">
         </div>
 
         <button onclick="compressImage()">Compress Now</button>
         
-        <div class="preview-section">
-            <div class="preview-card">
-                <h3>Original Image</h3>
-                <img id="originalPreview" class="preview-image">
+        <div class="previews">
+            <div class="preview">
+                <h3>Original</h3>
+                <img id="originalPreview">
             </div>
-            <div class="preview-card">
-                <h3>Compressed Image</h3>
-                <img id="compressedPreview" class="preview-image">
-                <a id="downloadLink" class="download-link">Download</a>
+            <div class="preview">
+                <h3>Compressed</h3>
+                <img id="compressedPreview">
+                <a id="downloadLink" class="download-btn">Download</a>
             </div>
         </div>
     </div>
 
-    <!-- Tools Homepage Grid -->
-    <main class="tool-grid" id="toolContainer">
-        <a href="jpg-compress.html" class="tool-card">
-            <i class="fa-solid fa-file-image tool-icon"></i>
-            <h3>Image Compressor</h3>
-            <p>Reduce image file size without quality loss</p>
+    <!-- Tools Grid -->
+    <div class="tool-grid" id="tools">
+        <a href="image-merger.html" class="tool-card">
+            <i class="fas fa-object-group"></i>
+            <h3>Image Merger</h3>
+            <p>Combine multiple images into one</p>
         </a>
-        <!-- Add more tool cards following the same pattern -->
-    </main>
+        <a href="image-pdf.html" class="tool-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Image to PDF</h3>
+            <p>Convert images to PDF documents</p>
+        </a>
+        <a href="pdf-editor.html" class="tool-card">
+            <i class="fas fa-edit"></i>
+            <h3>PDF Editor</h3>
+            <p>Modify PDF documents online</p>
+        </a>
+        <a href="pdf-word.html" class="tool-card">
+            <i class="fas fa-file-word"></i>
+            <h3>PDF to Word</h3>
+            <p>Convert PDFs to editable documents</p>
+        </a>
+        <a href="word-pdf.html" class="tool-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Word to PDF</h3>
+            <p>Convert DOC/DOCX to PDF</p>
+        </a>
+    </div>
+
+    <!-- Ad Unit 2 -->
+    <div class="ad-unit">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
     <script>
         // Image Compression Logic
@@ -192,14 +228,13 @@
             reader.readAsDataURL(originalFile);
         }
 
-        async function compressImage() {
+        function compressImage() {
             if (!originalFile) return alert('Please select an image!');
             
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             const img = new Image();
             
-            img.src = URL.createObjectURL(originalFile);
             img.onload = () => {
                 canvas.width = img.width;
                 canvas.height = img.height;
@@ -211,19 +246,24 @@
                     const downloadLink = document.getElementById('downloadLink');
                     downloadLink.href = compressedUrl;
                     downloadLink.download = `compressed-${originalFile.name}`;
-                    downloadLink.style.display = 'block';
                 }, 'image/jpeg', qualitySlider.value/100);
             };
+            img.src = URL.createObjectURL(originalFile);
         }
 
-        // SEO Structured Data
+        // Structured Data
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "FileTools Pro",
-            "description": "Comprehensive online file optimization toolkit",
+            "name": "FileMagic",
+            "description": "Comprehensive online file conversion and optimization toolkit",
             "applicationCategory": ["Multimedia", "Productivity"],
-            "operatingSystem": "Any"
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
         };
     </script>
 </body>
