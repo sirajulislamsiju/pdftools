@@ -3,48 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free Online PDF and Image Tools - Compress, Convert, Edit Documents and Images">
-    <title>PDF & Image Tools - Online Document Converter</title>
-    <<!-- CSS Link -->
-<link rel="stylesheet" href="../css/style.css">
-
-<!-- JavaScript Link -->
-<script src="../js/pdf-to-word.js"></script>>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">PDFTools</div>
-            <ul class="nav-links">
-                <li><a href="#tools">All Tools</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <h1>Image to PDF Converter</h1>
+        <a href="/">← Back to Home</a>
     </header>
 
-    <main class="tools-grid">
-        <div class="ad-unit header-ad">
-            <!-- AdSense Header Ad -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-AD_CLIENT_ID" data-ad-slot="HEADER_AD_SLOT" data-ad-format="auto"></ins>
+    <main class="tool-container">
+        <div class="ad-sidebar">
+            <!-- Vertical Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="XXXXXXXXXX"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
         </div>
 
-        <h1>Online Document Conversion Tools</h1>
-        
-        <div class="tool-card">
-            <a href="image-merger.html">
-                <img src="assets/image-merge-icon.svg" alt="Image Merger">
-                <h2>Image Merger</h2>
-            </a>
+        <div class="tool-interface">
+            <input type="file" id="imageInput" accept="image/*" multiple>
+            <button onclick="convertToPDF()">Convert to PDF</button>
+            <div id="preview"></div>
         </div>
-        
-        <!-- Repeat for other tools with appropriate hrefs -->
-        
     </main>
 
-    <footer>
-        <!-- Footer content -->
-    </footer>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Image to PDF conversion logic
+        function convertToPDF() {
+            // Add conversion logic here
+        }
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </body>
 </html>
