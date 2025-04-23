@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Toolkit - Online File Tools</title>
+    <meta name="description" content="All-in-One File Toolkit - Compress, merge, and convert images & PDFs with professional online tools">
+    <meta name="keywords" content="image compressor, PDF tools, document converter, image merger, PDF editor">
+    <title>FileMagic - Online File Conversion Tools</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1d4ed8;
-            --background: #f8fafc;
+            --primary: #4F46E5;
+            --secondary: #6366F1;
+            --background: #F8FAFC;
         }
 
         * {
@@ -21,13 +24,46 @@
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            background-color: var(--background);
+            background: var(--background);
         }
 
-        /* Updated tool card styles for anchor tags */
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Tools Grid */
+        .tool-grid {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
         .tool-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
             transition: transform 0.3s ease;
@@ -35,118 +71,200 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            cursor: pointer;
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
-            text-decoration: none;
         }
 
-        /* Rest of existing styles remain the same */
-        .header { /* ... */ }
-        .nav-container { /* ... */ }
-        .logo { /* ... */ }
-        .search-bar { /* ... */ }
-        .hero { /* ... */ }
-        .tool-grid { /* ... */ }
-        .tool-icon { /* ... */ }
-        .category-filter { /* ... */ }
-        .category-btn { /* ... */ }
-        footer { /* ... */ }
-        .footer-content { /* ... */ }
-        @media (max-width: 768px) { /* ... */ }
+        /* Image Compressor Tool */
+        .tool-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .file-input-wrapper {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        /* Ads */
+        .ad-unit {
+            margin: 2rem 0;
+            text-align: center;
+            min-height: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .tool-container {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Existing header and hero section -->
-    
-    <main class="tool-grid" id="toolContainer">
-        <!-- Tools will be dynamically inserted here -->
-    </main>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">FileMagic</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Existing footer -->
+    <!-- Ad Unit 1 -->
+    <div class="ad-unit">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Image Compression Tool -->
+    <div class="tool-container" id="compressor">
+        <h2>Image Compressor</h2>
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput" accept="image/*">
+            <p>📁 Drag and drop or click to upload image</p>
+        </div>
+
+        <div class="controls">
+            <label>Quality: <span id="qualityValue">80</span>%</label>
+            <input type="range" id="quality" min="1" max="100" value="80">
+        </div>
+
+        <button onclick="compressImage()">Compress Now</button>
+        
+        <div class="previews">
+            <div class="preview">
+                <h3>Original</h3>
+                <img id="originalPreview">
+            </div>
+            <div class="preview">
+                <h3>Compressed</h3>
+                <img id="compressedPreview">
+                <a id="downloadLink" class="download-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="tool-grid" id="tools">
+        <a href="image-merger.html" class="tool-card">
+            <i class="fas fa-object-group"></i>
+            <h3>Image Merger</h3>
+            <p>Combine multiple images into one</p>
+        </a>
+        <a href="image-pdf.html" class="tool-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Image to PDF</h3>
+            <p>Convert images to PDF documents</p>
+        </a>
+        <a href="pdf-editor.html" class="tool-card">
+            <i class="fas fa-edit"></i>
+            <h3>PDF Editor</h3>
+            <p>Modify PDF documents online</p>
+        </a>
+        <a href="pdf-word.html" class="tool-card">
+            <i class="fas fa-file-word"></i>
+            <h3>PDF to Word</h3>
+            <p>Convert PDFs to editable documents</p>
+        </a>
+        <a href="word-pdf.html" class="tool-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Word to PDF</h3>
+            <p>Convert DOC/DOCX to PDF</p>
+        </a>
+    </div>
+
+    <!-- Ad Unit 2 -->
+    <div class="ad-unit">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
     <script>
-        const tools = [
-            { 
-                name: "Image Compressor",
-                icon: "fa-solid fa-file-image",
-                category: "Image Tools",
-                desc: "Reduce image file size without quality loss",
-                link: "/image-compressor.html"
-            },
-            {
-                name: "PDF Merger",
-                icon: "fa-solid fa-file-pdf",
-                category: "PDF Tools",
-                desc: "Combine multiple PDF files into one document",
-                link: "/pdf-merger.html"
-            },
-            {
-                name: "Document Converter",
-                icon: "fa-solid fa-file-word",
-                category: "Documents",
-                desc: "Convert between DOC, PDF, and other formats",
-                link: "/document-converter.html"
-            },
-            {
-                name: "Image Converter",
-                icon: "fa-solid fa-file-image",
-                category: "Image Tools",
-                desc: "Convert between JPG, PNG, WEBP formats",
-                link: "/image-converter.html"
-            },
-            {
-                name: "PDF to Word",
-                icon: "fa-solid fa-file-pdf",
-                category: "PDF Tools",
-                desc: "Convert PDF documents to editable Word files",
-                link: "/pdf-to-word.html"
-            },
-            {
-                name: "Excel to PDF",
-                icon: "fa-solid fa-file-excel",
-                category: "Documents",
-                desc: "Convert spreadsheets to PDF format",
-                link: "/excel-to-pdf.html"
-            }
-        ];
+        // Image Compression Logic
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const fileInput = document.getElementById('fileInput');
+        let originalFile = null;
 
-        const toolContainer = document.getElementById('toolContainer');
+        qualitySlider.addEventListener('input', () => {
+            qualityValue.textContent = qualitySlider.value;
+        });
 
-        function renderTools(filter = 'All Tools') {
-            toolContainer.innerHTML = '';
-            const filteredTools = filter === 'All Tools' 
-                ? tools 
-                : tools.filter(tool => tool.category === filter);
+        fileInput.addEventListener('change', handleFileSelect);
 
-            filteredTools.forEach(tool => {
-                const toolCard = document.createElement('a');
-                toolCard.className = 'tool-card';
-                toolCard.href = tool.link;
-                toolCard.target = "_blank";
-                toolCard.rel = "noopener noreferrer";
-                toolCard.innerHTML = `
-                    <i class="${tool.icon} tool-icon"></i>
-                    <h3>${tool.name}</h3>
-                    <p>${tool.desc}</p>
-                `;
-                toolContainer.appendChild(toolCard);
-            });
+        function handleFileSelect(e) {
+            originalFile = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById('originalPreview').src = event.target.result;
+            };
+            reader.readAsDataURL(originalFile);
         }
 
-        // Initial render
-        renderTools();
+        function compressImage() {
+            if (!originalFile) return alert('Please select an image!');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            img.onload = () => {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                canvas.toBlob(blob => {
+                    const compressedUrl = URL.createObjectURL(blob);
+                    document.getElementById('compressedPreview').src = compressedUrl;
+                    const downloadLink = document.getElementById('downloadLink');
+                    downloadLink.href = compressedUrl;
+                    downloadLink.download = `compressed-${originalFile.name}`;
+                }, 'image/jpeg', qualitySlider.value/100);
+            };
+            img.src = URL.createObjectURL(originalFile);
+        }
 
-        // Category filter handling
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderTools(btn.textContent);
-            });
-        });
+        // Structured Data
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "FileMagic",
+            "description": "Comprehensive online file conversion and optimization toolkit",
+            "applicationCategory": ["Multimedia", "Productivity"],
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
     </script>
 </body>
 </html>
