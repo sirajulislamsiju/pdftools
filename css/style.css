@@ -1,43 +1,47 @@
-/* Base Styles */
-body {
-    font-family: 'Arial', sans-serif;
+/* Responsive Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
-/* Tool Grid Layout */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Tool Cards */
 .tool-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s;
 }
 
 .tool-card:hover {
     transform: translateY(-5px);
 }
 
-/* Responsive Design */
+/* Responsive Ad Containers */
+.ad-container, .ad-sidebar {
+    margin: 20px auto;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
-    .tools-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
+    .tool-container {
+        flex-direction: column;
     }
     
-    .tool-card {
-        margin: 0.5rem;
+    .ad-sidebar {
+        order: -1;
     }
 }
