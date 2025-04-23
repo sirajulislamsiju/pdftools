@@ -13,3 +13,6 @@ Free online file conversion tools built with HTML/CSS/JavaScript
 1. Clone repository:
 ```bash
 git clone https://github.com/sirajulislamsiju/pdftools.git
+Add installation instructions for wkhtmltopdf in README.md
+
+This provides a basic but functional implementation within Jupyter Notebook environment. For full web deployment, consider combining with web frameworks like Flask or Django.
